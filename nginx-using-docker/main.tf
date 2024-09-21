@@ -12,9 +12,9 @@ resource "docker_image" "nginx"  {  #downloads the nginx image from the dockerhu
   name = "nginx"
   keep_locally = "false"
 }
-}
 
-provider "docker_container" "nginx" {
+
+resource "docker_container" "nginx" {
   image = docker_image.image_name  #implicit dependency ( Container depends on the image) Container - Child block, Image: Parent Block
   name = "nginx"
   ports {
